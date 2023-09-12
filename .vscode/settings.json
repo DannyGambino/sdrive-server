@@ -1,0 +1,13 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#45106A",
+        "titleBar.activeBackground": "#601794",
+        "titleBar.activeForeground": "#FDFCFF",
+    "python.linting.pylintArgs": [
+    "--load-plugins=pylint_django",
+    "--django-settings-module=honeyrae.settings",
+],
+        
+    }
+    
+}
