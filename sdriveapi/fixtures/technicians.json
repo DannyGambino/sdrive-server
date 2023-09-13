@@ -1,0 +1,26 @@
+[
+    {
+        "model": "sdriveapi.technician",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "specialty": "Brakes"
+        }
+    },
+    {
+        "model": "sdriveapi.technician",
+        "pk": 2,
+        "fields": {
+            "user": 3,
+            "specialty": "Tires"
+        }
+    },
+    {
+        "model": "sdriveapi.technician",
+        "pk": 3,
+        "fields": {
+            "user": 4,
+            "specialty": "Fluids"
+        }
+    }
+]

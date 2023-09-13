@@ -1,0 +1,38 @@
+[
+    {
+        "model": "sdriveapi.serviceticket",
+        "pk": 1,
+        "fields": {
+            "advisor": 1,
+            "technician": 1,
+            "customer": "Barbara Miller",
+            "vehicle": "Ford Explorer",
+            "description": "Customer requests new front and rear brakes.",
+            "date_completed": null
+        }
+    },
+    {
+        "model": "sdriveapi.serviceticket",
+        "pk": 2,
+        "fields": {
+            "advisor": 2,
+            "technician": 3,
+            "customer": "Chris Alstott",
+            "vehicle": "Subaru Forester",
+            "description": "Customer requests a differential oil change.",
+            "date_completed": null
+        }
+    },
+    {
+        "model": "sdriveapi.serviceticket",
+        "pk": 3,
+        "fields": {
+            "advisor": 3,
+            "technician": 2,
+            "customer": "Devon Schilling",
+            "vehicle": "Tesla Model S",
+            "description": "Customer requests 4 new tires.",
+            "date_completed": null
+        }
+    }
+]

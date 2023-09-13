@@ -1,0 +1,26 @@
+[
+    {
+        "model": "sdriveapi.advisor",
+        "pk": 1,
+        "fields": {
+            "user": 2,
+            "experience": "6 years"
+        }
+    },
+    {
+        "model": "sdriveapi.advisor",
+        "pk": 2,
+        "fields": {
+            "user": 5,
+            "experience": "1 year"
+        }
+    },
+    {
+        "model": "sdriveapi.advisor",
+        "pk": 3,
+        "fields": {
+            "user": 6,
+            "experience": "3 years"
+        }
+    }
+]
