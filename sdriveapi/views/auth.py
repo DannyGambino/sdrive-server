@@ -6,8 +6,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from django.db import IntegrityError
-from sdriveapi.models import Advisor
-from sdriveapi.models import Technician
+from sdriveapi.models import Advisor, Technician
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -22,7 +21,7 @@ def login_user(request):
 
     # Use the built-in authenticate method to verify
     # authenticate returns the user object or None if no user is found
-    authenticated_user = authenticate(email=email, password=password)
+    authenticated_user = authenticate(username=email, password=password)
 
     # If authentication was successful, respond with their token
     if authenticated_user is not None:
@@ -63,14 +62,14 @@ def register_user(request):
             experience = request.data.get('experience', None)
             if experience is None:
                 return Response(
-                    {'message': 'You must provide an experience for a advisor'},
+                    {'message': 'You must provide an experience for an advisor'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
         elif account_type == 'technician':
             specialty = request.data.get('specialty', None)
             if specialty is None:
                 return Response(
-                    {'message': 'You must provide a specialty for an technician'},
+                    {'message': 'You must provide a specialty for a technician'},
                     status=status.HTTP_400_BAD_REQUEST
                 )
         else:
@@ -83,7 +82,7 @@ def register_user(request):
             # Create a new user by invoking the `create_user` helper method
             # on Django's built-in User model
             new_user = User.objects.create_user(
-                username=request.data['username'],
+                username=request.data['email'],
                 email=request.data['email'],
                 password=request.data['password'],
                 first_name=request.data['first_name'],
@@ -98,14 +97,14 @@ def register_user(request):
         account = None
 
         if account_type == 'advisor':
+            new_user.is_staff = True
+            new_user.save()
+
             account = Advisor.objects.create(
                 experience=request.data['experience'],
                 user=new_user
             )
         elif account_type == 'technician':
-            new_user.is_staff = True
-            new_user.save()
-
             account = Technician.objects.create(
                 specialty=request.data['specialty'],
                 user=new_user
@@ -114,7 +113,7 @@ def register_user(request):
         # Use the REST Framework's token generator on the new user account
         token = Token.objects.create(user=account.user)
         # Return the token to the client
-        data = { 'token': token.key }
+        data = { 'token': token.key, 'staff': new_user.is_staff }
         return Response(data)
 
     return Response({'message': 'You must provide email, password, first_name, last_name and account_type'}, status=status.HTTP_400_BAD_REQUEST)
