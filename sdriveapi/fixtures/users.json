@@ -106,5 +106,41 @@
             "groups": [],
             "user_permissions": []
         }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "password": "qwerty",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "DannyGambino",
+            "email": "dg@email.com",
+            "first_name": "Daniel",
+            "last_name": "Cicalese",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2022-10-21T21:19:24.892Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "password": "asdf",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "chris.farley",
+            "email": "chris@farley.com",
+            "first_name": "Chris",
+            "last_name": "Farley",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-10-21T21:19:24.892Z",
+            "groups": [],
+            "user_permissions": []
+        }
     }
 ]

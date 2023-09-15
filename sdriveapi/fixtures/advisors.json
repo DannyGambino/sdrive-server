@@ -22,5 +22,13 @@
             "user": 6,
             "experience": "3 years"
         }
+    },
+    {
+        "model": "sdriveapi.advisor",
+        "pk": 4,
+        "fields": {
+            "user": 7,
+            "experience": "6 years"
+        }
     }
 ]
