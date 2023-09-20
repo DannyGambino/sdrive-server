@@ -22,13 +22,5 @@
             "user": 4,
             "specialty": "Fluids"
         }
-    },
-    {
-        "model": "sdriveapi.technician",
-        "pk": 4,
-        "fields": {
-            "user": 8,
-            "specialty": "Exhaust"
-        }
     }
 ]

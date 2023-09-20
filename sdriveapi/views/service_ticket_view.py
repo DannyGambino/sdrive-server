@@ -42,6 +42,53 @@ class ServiceTicketView(ViewSet):
         serialized = ServiceTicketSerializer(service_tickets, many=True)
         return Response(serialized.data, status=status.HTTP_200_OK)
     
+    def create(self, request):
+        """Handle POST requests for service tickets
+
+        Returns:
+            Response: JSON serialized representation of newly created service ticket
+        """
+        new_ticket = ServiceTicket()
+        new_ticket.advisor = Advisor.objects.get(user=request.auth.user)
+        new_ticket.description = request.data['description']
+        new_ticket.vehicle = request.data['vehicle']
+        new_ticket.customer = request.data['customer']
+
+        new_ticket.save()
+
+        serialized = ServiceTicketSerializer(new_ticket, many=False)
+
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+    
+    def update(self, request, pk=None):
+        """Handle PUT requests"""
+
+        ticket = ServiceTicket.objects.get(pk=pk)
+
+        technician_id = request.data['technician']
+        print(type(technician_id))
+        if isinstance(technician_id, int):
+            assigned_technician = Technician.objects.get(pk=technician_id)
+
+            ticket.technician = assigned_technician
+        else:            
+            ticket.advisor = Advisor.objects.get(user=request.auth.user)
+            ticket.description = request.data['description']
+            ticket.vehicle = request.data['vehicle']
+            ticket.customer = request.data['customer']
+
+        ticket.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
+    def destroy(self, request, pk=None):
+        """Handle DELETE requests"""
+
+        service_ticket = ServiceTicket.objects.get(pk=pk)
+        service_ticket.delete()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+    
 class TicketAdvisorSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -61,5 +108,5 @@ class ServiceTicketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ServiceTicket
-        fields = ('id', 'advisor', 'technician', 'customer', 'vehicle', 'description', 'date_completed')
+        fields = ('id', 'advisor', 'customer', 'technician', 'vehicle', 'description', 'date_completed')
         depth = 1

@@ -4,8 +4,8 @@
         "pk": 1,
         "fields": {
             "advisor": 1,
-            "technician": 1,
             "customer": "Barbara Miller",
+            "technician": 1,
             "vehicle": "Ford Explorer",
             "description": "Customer requests new front and rear brakes.",
             "date_completed": null
@@ -16,8 +16,8 @@
         "pk": 2,
         "fields": {
             "advisor": 2,
-            "technician": 3,
             "customer": "Chris Alstott",
+            "technician": 2,
             "vehicle": "Subaru Forester",
             "description": "Customer requests a differential oil change.",
             "date_completed": null
@@ -28,8 +28,8 @@
         "pk": 3,
         "fields": {
             "advisor": 3,
-            "technician": 2,
             "customer": "Devon Schilling",
+            "technician": 3,
             "vehicle": "Tesla Model S",
             "description": "Customer requests 4 new tires.",
             "date_completed": "2023-09-07"
