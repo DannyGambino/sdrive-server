@@ -3,6 +3,7 @@
         "model": "sdriveapi.serviceticket",
         "pk": 1,
         "fields": {
+            "ro_identifier": 1,
             "advisor": 1,
             "customer": "Barbara Miller",
             "technician": 1,
@@ -15,6 +16,7 @@
         "model": "sdriveapi.serviceticket",
         "pk": 2,
         "fields": {
+            "ro_identifier": 2,
             "advisor": 2,
             "customer": "Chris Alstott",
             "technician": 2,
@@ -27,6 +29,7 @@
         "model": "sdriveapi.serviceticket",
         "pk": 3,
         "fields": {
+            "ro_identifier": 3,
             "advisor": 3,
             "customer": "Devon Schilling",
             "technician": 3,
